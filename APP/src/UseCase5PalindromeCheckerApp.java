@@ -1,17 +1,18 @@
-public class UseCase4PalindromeCheckerApp {
+import java.util.Stack;
+
+public class UseCase5PalindromeCheckerApp {
     public static void main(String[] args) {
         String word = "level";
-        char[] chars = word.toCharArray();
-        int start = 0;
-        int end = chars.length - 1;
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < word.length(); i++) {
+            stack.push(word.charAt(i));
+        }
         boolean isPalindrome = true;
-        while (start < end) {
-            if (chars[start] != chars[end]) {
+        for (int i = 0; i < word.length(); i++) {
+            if (word.charAt(i) != stack.pop()) {
                 isPalindrome = false;
                 break;
             }
-            start++;
-            end--;
         }
         if (isPalindrome) {
             System.out.println(word + " is a Palindrome.");
